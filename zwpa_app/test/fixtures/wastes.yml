@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audit_id: 1
+  note: MyText
+  weight: 1.5
+  material_type: MyString
+
+two:
+  audit_id: 1
+  note: MyText
+  weight: 1.5
+  material_type: MyString

@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @request.customer_id %>
+</p>
+
+<p>
+  <strong>Contact firstname:</strong>
+  <%= @request.contact_firstname %>
+</p>
+
+<p>
+  <strong>Contact lastname:</strong>
+  <%= @request.contact_lastname %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @request.title %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @request.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @request.phone %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @request.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @request.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @request.state %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @request.date %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @request.Note %>
+</p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @request.request_id %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @request.photo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @request.description %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
