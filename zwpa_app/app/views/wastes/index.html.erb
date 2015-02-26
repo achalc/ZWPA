@@ -1,0 +1,33 @@
+<h1>Listing wastes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Audit</th>
+      <th>Note</th>
+      <th>Weight</th>
+      <th>Material type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wastes.each do |waste| %>
+      <tr>
+        <td><%= waste.audit_id %></td>
+        <td><%= waste.note %></td>
+        <td><%= waste.weight %></td>
+        <td><%= waste.material_type %></td>
+        <td><%= link_to 'Show', waste %></td>
+        <td><%= link_to 'Edit', edit_waste_path(waste) %></td>
+        <td><%= link_to 'Destroy', waste, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Waste', new_waste_path %>
