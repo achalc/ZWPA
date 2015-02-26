@@ -24,10 +24,26 @@ FactoryGirl.define do
 		zip_code "15213"
 	end
 
+	factory :waste do
+		association :audit
+		note "Sample note"
+		weight 3.5
+		material_type "Mixed Paper"
+		origin "Bathroom"
+	end
+
 	factory :note do
 		description "This is a test decription for this note."
 		photo "this will be the filename for the photo"
 		association :request
+	end
+
+	factory :audit do
+		association :request
+		date Date.new(2015,1,4)
+		time_period "January 1-3, 2015"
+		generator "Trash"
+		location "Porter Hall"
 	end
 
 end
