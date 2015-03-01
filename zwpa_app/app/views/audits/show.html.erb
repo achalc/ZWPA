@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @audit.request_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @audit.date %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @audit.origin %>
+</p>
+
+<p>
+  <strong>Time period:</strong>
+  <%= @audit.time_period %>
+</p>
+
+<p>
+  <strong>Dumpster type:</strong>
+  <%= @audit.dumpster_type %>
+</p>
+
+<%= link_to 'Edit', edit_audit_path(@audit) %> |
+<%= link_to 'Back', audits_path %>
