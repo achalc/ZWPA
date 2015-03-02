@@ -69,6 +69,6 @@
   <strong>Description:</strong>
   <%#= @request.description %>
 </p>
-
+<%= link_to 'Add Walkthrough', new_walkthrough_path %>
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>
