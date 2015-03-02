@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore the Ruby Version
+.ruby-version
+
+# Ignore the coverage directory
+/coverage
