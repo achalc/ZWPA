@@ -1,74 +1,102 @@
 <p id="notice"><%= notice %></p>
+<h1>
+  <%= link_to @request.customer.company_name, @request.customer %> > 
+  <%= @request.date.strftime('%B %e, %Y') %>
+</h1>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @request.customer.company_name %>
-</p>
+<div class="small-12 medium-12 large-7 columns">
+  <fieldset>
+    <legend><h3>Documents</h3></legend>
+      <ol>
+        <li>
+          Questionnaire - 
+          <% @walkthroughs = Walkthrough.where(request_id: @request.id) %>
+          <% @walkthroughs.each do |walkthrough| %>
+          <%= link_to walkthrough.created_at.strftime('%b %e, %Y'), walkthrough %>
+          <% end %>
+        </li>
+        <%= link_to 'Add Questionnaire', new_walkthrough_path(:request_id => @request.id) %><br><br>
+    <!--     *********TEST AFTER AUDIT/WASTE MODELS/CONTROLLERS WORK******** -->
+        <%#= @audits = Audit.where(request_id: @request_id) %>
+        <%# @audits.each do |audit| %>
+        <li>
+          <%#= audit.generator %> Audit - 
+          <%#= link_to audit.created_at.strftime('%b %e, %Y'), audit %>
+        </li>
+        <%# end %>
+        <%= link_to 'Add Audit', new_audit_path(:request_id => @request.id) %>
+      </ol>
+    </div>
+  </fieldset>
 
-<p>
-  <strong>Contact firstname:</strong>
-  <%= @request.contact_firstname %>
-</p>
+<div class="small-12 medium-12 large-7 columns">
+  <fieldset>
+  <legend><h3>Request Details</h3></legend>
+  <p>
+    <strong>Customer:</strong>
+    <%= @request.customer.company_name %>
+  </p>
 
-<p>
-  <strong>Contact lastname:</strong>
-  <%= @request.contact_lastname %>
-</p>
+  <p>
+    <strong>Contact First Name:</strong>
+    <%= @request.contact_firstname %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @request.title %>
-</p>
+  <p>
+    <strong>Contact Last Name:</strong>
+    <%= @request.contact_lastname %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @request.email %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @request.title %>
+  </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @request.phone %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @request.email %>
+  </p>
 
-<p>
-  <strong>Street address:</strong>
-  <%= @request.street_address %>
-</p>
+  <p>
+    <strong>Phone:</strong>
+    <%= @request.phone %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @request.city %>
-</p>
+  <p>
+    <strong>Street Address:</strong>
+    <%= @request.street_address %>
+  </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @request.state %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @request.city %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @request.date %>
-</p>
+  <p>
+    <strong>State:</strong>
+    <%= @request.state %>
+  </p>
 
-<p>
-  <strong>Note:</strong>
-  <%#= @request.Note %>
-</p>
+  <p>
+    <strong>Date:</strong>
+    <%= @request.date %>
+  </p>
+  </fieldset>
+</div>
 
-<p>
-  <strong>Request:</strong>
-  <%#= @request.request_id %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%#= @request.photo %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%#= @request.description %>
-</p>
-<%= link_to 'Add Walkthrough', new_walkthrough_path(:request_id => @request.id) %>
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+<div class="small-12 medium-12 large-7 columns">
+  <fieldset>
+  <legend><h3>Notes</h3></legend>
+<!--   ********* TEST AFTER NOTE MODEL/CONTROLLER ARE DONE ********* -->
+<!--   <ul>
+    <%# @notes = Note.where(request_id: @request.id) %>
+    <%# @notes.each do |note| %>
+    <li><%#= note.description %></li>
+    <li><%#= note.photo %></li>
+  </ul> -->
+  </fieldset>
+</div>
+<div class="small-12 medium-12 large-7 columns">
+<%= link_to 'Edit Request', edit_request_path(@request), :class => "button" %>
+<%= link_to 'Back to All Requests', requests_path, :class => "button" %>
+</div>

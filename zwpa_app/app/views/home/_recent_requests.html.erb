@@ -8,7 +8,7 @@
   <% requests.each do |request| %>
     <tr>
       <!-- How do I get the company name of request??? -->
-      <td><%= link_to request.customer.company_name, request_path(request) %></td>
+      <td><%= link_to request.customer.company_name, customer %></td>
       <td><%= request.date%></td>
       
       
