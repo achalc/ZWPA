@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Audit:</strong>
+  <%= @waste.audit_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @waste.note %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @waste.weight %>
+</p>
+
+<p>
+  <strong>Material type:</strong>
+  <%= @waste.material_type %>
+</p>
+
+<%= link_to 'Edit', edit_waste_path(@waste) %> |
+<%= link_to 'Back', wastes_path %>

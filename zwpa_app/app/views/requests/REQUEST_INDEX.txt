@@ -1,0 +1,230 @@
+REQUEST INDEX
+
+<h1>Listing requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Contact firstname</th>
+      <th>Contact lastname</th>
+      <th>Title</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Date</th>
+      <th>Note</th>
+      <th>Request</th>
+      <th>Photo</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.customer_id %></td>
+        <td><%= request.contact_firstname %></td>
+        <td><%= request.contact_lastname %></td>
+        <td><%= request.title %></td>
+        <td><%= request.email %></td>
+        <td><%= request.phone %></td>
+        <td><%= request.street_address %></td>
+        <td><%= request.city %></td>
+        <td><%= request.state %></td>
+        <td><%= request.date %></td>
+        <td><%= request.Note %></td>
+        <td><%= request.request_id %></td>
+        <td><%= request.photo %></td>
+        <td><%= request.description %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', new_request_path %>
+
+##########################################################
+REQUEST FORM
+
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_id %><br>
+    <%= f.number_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_firstname %><br>
+    <%= f.text_field :contact_firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_lastname %><br>
+    <%= f.text_field :contact_lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :street_address %><br>
+    <%= f.text_area :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+
+  <%= render 'note_form' %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+################################################
+
+NEW REQUEST
+
+<h1>New Request</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', requests_path, :class => 'button' %>
+
+
+#############################################
+
+NOTE FORM
+
+<%= form_for(@request) do |f| %>
+  <h4>Notes</h4>
+    <div class="field">
+        <%= f.label :request_id %><br>
+        <%#= f.number_field :request_id %>
+      </div>
+      <div class="field">
+        <%= f.label :photo %><br>
+        <%#= f.text_area :photo %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%#= f.text_area :description %>
+      </div>
+<% end %>
+
+########################################
+
+SHOW REQUEST
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @request.customer_id %>
+</p>
+
+<p>
+  <strong>Contact firstname:</strong>
+  <%= @request.contact_firstname %>
+</p>
+
+<p>
+  <strong>Contact lastname:</strong>
+  <%= @request.contact_lastname %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @request.title %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @request.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @request.phone %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @request.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @request.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @request.state %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @request.date %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%#= @request.Note %>
+</p>
+
+<p>
+  <strong>Request:</strong>
+  <%#= @request.request_id %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%#= @request.photo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%#= @request.description %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
