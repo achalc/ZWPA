@@ -1,0 +1,26 @@
+<table class="table">
+  <tr>
+    <th width="200">Client</th>
+    <th width="120">Generator</th>
+    <th width="120">Date</th>
+    <th></th>
+  </tr>
+
+  <% audits.each do |audit| %>
+    <tr>
+      <!-- How do I get the company name of request??? -->
+      <td><%= link_to audit.request.customer.company_name, audit_path(audit) %></td>
+      <td><%= audit.generator%></td>
+      <td><%= audit.date%></td>
+      
+      
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "View All Audits", audits_path %>
+
+<!-- Add the pagination using will_paginate gem -->
+<!-- <span class="paginate"> -->
+<%#= will_paginate requests, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<!-- </span> -->

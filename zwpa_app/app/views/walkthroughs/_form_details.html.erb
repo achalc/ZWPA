@@ -1,0 +1,21 @@
+<%= simple_form_for(@walkthrough, html: { class: 'form-horizontal'}) do |f| %>
+
+
+<!-- Probs just make a copy of the form partial somehow, except make each field a readonly (as shown here).
+
+Also you'll need to test putting a placeholder there to see how that works for filling in the field.
+
+you can't test this until you have working controllers for everything else + the ability to populate the database.
+
+Below is a sample example of how this might work. Again, you'll need to copy in the fields from the rest of the form to complete this. I haven't tested it yet because I can't. -->
+  
+  <div class="field">
+    <%= f.label :request_id %><br>
+    <%= f.number_field :request_id, :readonly => true, placeholder: @walkthrough.request_id %>
+  </div>
+
+  
+
+
+
+<% end %>

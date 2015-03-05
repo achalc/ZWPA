@@ -1,0 +1,139 @@
+<h1>Listing walkthroughs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Square footage</th>
+      <th>Num floors</th>
+      <th>Max occupancy</th>
+      <th>Other businesses</th>
+      <th>Other businesses type</th>
+      <th>Ownership</th>
+      <th>Waste disposal contract</th>
+      <th>Waste management cost</th>
+      <th>Loading dock</th>
+      <th>Freight elevators</th>
+      <th>Storage space</th>
+      <th>Storage space details</th>
+      <th>Trash hauler</th>
+      <th>Trash hauler contract</th>
+      <th>Contract available</th>
+      <th>Annual record</th>
+      <th>Waste storage</th>
+      <th>Waste containers</th>
+      <th>Buy recycled</th>
+      <th>Buy recycled details</th>
+      <th>Green cleaning products</th>
+      <th>Green cleaning details</th>
+      <th>Mandated recycling</th>
+      <th>Recycling program</th>
+      <th>Recycling details</th>
+      <th>Recycling stream</th>
+      <th>Recycling stream details</th>
+      <th>Discontinued recycling</th>
+      <th>Current compost</th>
+      <th>Past compost</th>
+      <th>Generate toner ink</th>
+      <th>Recycle toner ink</th>
+      <th>Generate cfls</th>
+      <th>Recycle cfls</th>
+      <th>Generate batteries</th>
+      <th>Recycle batteries</th>
+      <th>Generate computers</th>
+      <th>Recycle computers</th>
+      <th>Generate cellphones</th>
+      <th>Recycle cellphones</th>
+      <th>Generate tvs</th>
+      <th>Recycle tvs</th>
+      <th>Generate other corded equipment</th>
+      <th>Recycle cellphones</th>
+      <th>Generate furniture</th>
+      <th>Recycle furniture</th>
+      <th>Generate linens uniforms</th>
+      <th>Recycle linens uniforms</th>
+      <th>Generate construction debris</th>
+      <th>Recycle construction debris</th>
+      <th>Generate pallets</th>
+      <th>Recycle pallets</th>
+      <th>Zw policy</th>
+      <th>Leed</th>
+      <th>Recertify leed</th>
+      <th>Requesting audit services</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @walkthroughs.each do |walkthrough| %>
+      <tr>
+        <td><%= walkthrough.request.customer.company_name %></td>
+        <td><%= walkthrough.square_footage %></td>
+        <td><%= walkthrough.num_floors %></td>
+        <td><%= walkthrough.max_occupancy %></td>
+        <td><%= walkthrough.other_businesses %></td>
+        <td><%= walkthrough.other_businesses_type %></td>
+        <td><%= walkthrough.ownership %></td>
+        <td><%= walkthrough.waste_disposal_contract %></td>
+        <td><%= walkthrough.waste_management_cost %></td>
+        <td><%= walkthrough.loading_dock %></td>
+        <td><%= walkthrough.freight_elevators %></td>
+        <td><%= walkthrough.storage_space %></td>
+        <td><%= walkthrough.storage_space_details %></td>
+        <td><%= walkthrough.trash_hauler %></td>
+        <td><%= walkthrough.trash_hauler_contract %></td>
+        <td><%= walkthrough.contract_available %></td>
+        <td><%= walkthrough.annual_record %></td>
+        <td><%= walkthrough.waste_storage %></td>
+        <td><%= walkthrough.waste_containers %></td>
+        <td><%= walkthrough.buy_recycled %></td>
+        <td><%= walkthrough.buy_recycled_details %></td>
+        <td><%= walkthrough.green_cleaning_products %></td>
+        <td><%= walkthrough.green_cleaning_details %></td>
+        <td><%= walkthrough.mandated_recycling %></td>
+        <td><%= walkthrough.recycling_program %></td>
+        <td><%= walkthrough.recycling_details %></td>
+        <td><%= walkthrough.recycling_stream %></td>
+        <td><%= walkthrough.recycling_stream_details %></td>
+        <td><%= walkthrough.discontinued_recycling %></td>
+        <td><%= walkthrough.current_compost %></td>
+        <td><%= walkthrough.past_compost %></td>
+        <td><%= walkthrough.generate_toner_ink %></td>
+        <td><%= walkthrough.recycle_toner_ink %></td>
+        <td><%= walkthrough.generate_CFLs %></td>
+        <td><%= walkthrough.recycle_CFLs %></td>
+        <td><%= walkthrough.generate_batteries %></td>
+        <td><%= walkthrough.recycle_batteries %></td>
+        <td><%= walkthrough.generate_computers %></td>
+        <td><%= walkthrough.recycle_computers %></td>
+        <td><%= walkthrough.generate_cellphones %></td>
+        <td><%= walkthrough.recycle_cellphones %></td>
+        <td><%= walkthrough.generate_tvs %></td>
+        <td><%= walkthrough.recycle_tvs %></td>
+        <td><%= walkthrough.generate_other_corded_equipment %></td>
+        <td><%= walkthrough.recycle_cellphones %></td>
+        <td><%= walkthrough.generate_furniture %></td>
+        <td><%= walkthrough.recycle_furniture %></td>
+        <td><%= walkthrough.generate_linens_uniforms %></td>
+        <td><%= walkthrough.recycle_linens_uniforms %></td>
+        <td><%= walkthrough.generate_construction_debris %></td>
+        <td><%= walkthrough.recycle_construction_debris %></td>
+        <td><%= walkthrough.generate_pallets %></td>
+        <td><%= walkthrough.recycle_pallets %></td>
+        <td><%= walkthrough.ZW_policy %></td>
+        <td><%= walkthrough.LEED %></td>
+        <td><%= walkthrough.recertify_LEED %></td>
+        <td><%= walkthrough.requesting_audit_services %></td>
+        <td><%= link_to 'Show', walkthrough %></td>
+        <td><%= link_to 'Edit', edit_walkthrough_path(walkthrough) %></td>
+        <td><%= link_to 'Destroy', walkthrough, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Walkthrough', new_walkthrough_path %>

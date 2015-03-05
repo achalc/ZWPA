@@ -1,0 +1,446 @@
+<%#= form_for(@walkthrough) do |f| %>
+
+<%= simple_form_for(@walkthrough, html: { class: 'form-horizontal'}) do |f| %>
+
+
+  <div class="field">
+      <%= f.hidden_field :request_id %><br>
+    </div>
+
+  <label> Date of Walkthrough </label><br>
+    <%= f.date_select :created_at %>
+
+
+    <div class="row">
+      <div class="small-12 medium-6 large-4 columns">
+          <div class="field row">       
+            <div class="small-4 columns">
+                <label for="right-label" class="right inline">Sq. footage</label>
+            </div>
+            <div class="small-8 columns">
+                <%= f.number_field :square_footage %>
+            </div>
+          </div>
+
+      </div>
+
+  </div>
+
+
+  <div class="field">
+      <label>Number of floors</label><br>
+      <%= f.number_field :num_floors %>
+    </div>
+
+    <div class="field">
+      <label>Maximum Occupancy</label><br>
+      <%= f.number_field :max_occupancy %>
+    </div>
+
+    <div class="field">
+      <label>Are there other spaces/businesses (Leased or Owned/Operated) in the building?</label><br>
+
+      <%= f.input :other_businesses, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    
+    </div>
+
+  <div class="field">
+      <label> If yes, what type of business/spaces?</label><br>
+      <%= f.text_area :other_businesses_type, placeholder: "i.e. coffee shop, bar, restaurant, gift shop, business center" %>
+    </div>
+  
+    <div class="field">
+      <label>Is your building owned or leased?</label><br>
+      <%= f.input :ownership, :collection => [['Own', 'Owned'], ['Lease', 'Leased']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+    <div class="field">
+      <label>If leased, does the leasing agent control the solid waste/recycling disposal contract?</label><br>
+
+      <%= f.input :waste_disposal_contract, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  <div class="field">
+      <label>If leased, are waste management costs included in the rent payment?</label><br>
+      <%= f.input :waste_management_cost, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+ <!--   *****
+    DOES YOUR BUILDING HAVE A...
+    ***** -->
+    <fieldset>
+      <legend><h4>Does your building have a...</h4></legend>
+      <div class="field">
+        <label>Loading dock?</label><br>
+        <%= f.input :loading_dock, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+      </div>
+      <div class="field">
+        <label>Freight elevators?</label><br>
+        <%= f.input :freight_elevators, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+      </div>
+      <div class="field">
+        <label>Ample storage space?</label><br>
+        <%= f.input :storage_space, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+      </div>
+      <div class="field">
+        <label>Storage details</label><br>
+        <%= f.text_area :storage_space_details %>
+      </div>
+    </fieldset>
+
+    <!-- ********* -->
+
+    <div class="field">
+      <label>Current trash hauler</label><br>
+      <%= f.text_area :trash_hauler %>
+    </div>
+
+    <div class="field">
+      <label>Do you have a contract with them?</label><br>
+  
+      <%= f.input :trash_hauler_contract, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+    <div class="field">
+      <label>If yes, is a copy available? </label><br>
+      
+      <%= f.input :contract_available, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+    <div class="field">
+      <label>Do you have at least one year's records of solid waste and/or recycling volumes?</label><br>
+
+      <%= f.input :annual_record, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+   <div class="field">
+      <label>Where is solid waste currently stored?</label><br>
+      <%= f.text_field :waste_storage %>
+   </div>
+
+   <div class="field">
+      <label>What solid waste containers do you use?</label><br>
+      <%= f.input :waste_containers, :collection => [['Dumpster', 'Dumpster'],['Roll-off', 'Roll-off'], ['Toter', 'Toter'], ['Other', 'Other']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: '' %>
+   </div>
+
+   <div class="field">
+      <label>Does your company have a <strong>'Buy Recycled'</strong> policy re: recyclability or recycled content of products?<br>
+ 
+      <%= f.input :buy_recycled, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+      <%= f.label "If yes, please describe" %><br>
+      <%= f.text_area :buy_recycled_details %>
+    </div>
+    <div class="field">
+      <label>Does your company have a policy of purchasing non-toxic/'Green' cleaning products?</label><br>
+    
+      <%= f.input :green_cleaning_products, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+      <%= f.label "If yes, please describe" %><br>
+      <%= f.text_area :green_cleaning_details %>
+    </div>
+    
+    <div class="field">
+      <label>Is your building located in a recycling mandated community?</label><br>
+    
+      <%= f.input :mandated_recycling, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+    <div class="field">
+      <label>Does your building currently have a <strong> recycling program </strong> ?</label><br>
+    
+      <%= f.input :recycling_program, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+
+    <div class="field">
+      <label>If yes, describe your current recycling system and material collected for recycling</label><br>
+      <%= f.text_area :recycling_details, placeholder: "e.g. 'We collect office paper in 90 gallon toters'" %>
+    </div>
+    <div class="field">
+      <label>Does your building currently utilize a duel-stream or single-stream recycling program in your building?</label><br>
+
+      <%= f.input :recycling_stream, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+      <label> Recycling stream details</label><br>
+      <%= f.text_area :recycling_stream_details, placeholder: "e.g. 'We collect white office and mixed paper in separate 90 gallon toters'" %>
+    </div>
+  
+    <div class="field">
+      <label>If your company was recycling and discontinued the effort, please explain why.</label><br>
+      <%= f.text_area :discontinued_recycling %>
+    </div>
+  
+    <div class="field">
+      <label>Does your company currently compost organic materials such as food waste/yard waste? </label><br>
+    
+      <%= f.input :current_compost, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+      <label>Has your organization composted organic material in the past?</label><br>
+    
+      <%= f.input :past_compost, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+    <!-- ****
+    E-WASTES
+    **** -->
+
+    <h4>E-Wastes</h4>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label>Toner ink </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> CFLs/Fluorescent tubes </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Batteries </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Computers, Peripherals </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Cell Phones </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> TV's </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Other Corded Equipment </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <!-- ****
+    Other Materials
+    **** -->
+
+    <h4>Other Materials</h4>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Furniture </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Linens / Uniforms </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Construction Debris </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_construction_debris , :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_construction_debris, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <label> Generate Pallets </label><br>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :generate_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <%= f.input :recycle_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+      </div>
+
+
+    </div>
+
+    <!-- **** -->
+
+    <div class="field">
+      <label>Does your company currently have a <strong>Zero Waste Policy<strong> in place?</label><br>
+      <p>This would require 90% of overall diversion of landfill for non-hazardous wastes discarded materials are reused, recycled, composted, or recovered for productive use in nature or the economy at biological temperatures.</p>
+    
+      <%= f.input :ZW_policy, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  <div class="field">
+      <label> Is your building/organization LEED certified? </label><br>
+    
+      <%= f.input :LEED, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+      <label>If so, is your buiding/organization looking to recertify your LEED building? </label><br>
+    
+      <%= f.input :recertify_LEED, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+  
+    <div class="field">
+
+      <label> Is your buiding requesting PRC for waste audit services? </label><br>
+      
+      <%= f.input :requesting_audit_services, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: 'button' %>
+    </div>
+
+<% end %>

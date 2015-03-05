@@ -1,0 +1,25 @@
+
+<!-- Main div for displaying most recent requests -->
+<div class="small-12 medium-12 large-7 columns">
+	<h1>Recent Requests</h1>
+	<!-- Show latest requests that have been issued -->
+	<%= render :partial => "recent_requests", locals: { requests: @requests } %>
+
+</div>
+
+
+<!-- Right column displays recently added clients and documents -->
+<div class="show-for-large-up large-5 columns">
+	<div class="row">
+		<div class="small-12 columns">
+			<h4>Recent Audits</h4>
+			<%= render :partial => "recent_audits", locals: { audits: @audits } %>
+		</div>
+
+	</div>
+	
+
+	
+
+</div>
+
