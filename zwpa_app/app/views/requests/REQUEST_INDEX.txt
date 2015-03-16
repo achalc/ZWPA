@@ -36,7 +36,6 @@ REQUEST INDEX
         <td><%= request.phone %></td>
         <td><%= request.street_address %></td>
         <td><%= request.city %></td>
-        <td><%= request.state %></td>
         <td><%= request.date %></td>
         <td><%= request.Note %></td>
         <td><%= request.request_id %></td>
@@ -101,10 +100,6 @@ REQUEST FORM
   <div class="field">
     <%= f.label :city %><br>
     <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
@@ -196,10 +191,6 @@ SHOW REQUEST
   <%= @request.city %>
 </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @request.state %>
-</p>
 
 <p>
   <strong>Date:</strong>

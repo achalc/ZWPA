@@ -19,7 +19,6 @@ FactoryGirl.define do
 		phone "123-456-7890"
 		street_address "5000 Forbes Ave"
 		city "Pittsburgh"
-		state "PA"
 		date Date.new(2015,1,1)
 		zip_code "15213"
 	end

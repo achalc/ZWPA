@@ -77,6 +77,10 @@
         null,
         2,
         null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/achalchannarasappa/Desktop/zwpa_app/zwpa_app/app/models/waste.rb": [
@@ -152,6 +156,8 @@
         1,
         null,
         null,
+        1,
+        1,
         1,
         null,
         null,
@@ -236,6 +242,6 @@
         null
       ]
     },
-    "timestamp": 1425398537
+    "timestamp": 1426545514
   }
 }

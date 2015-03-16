@@ -9,7 +9,6 @@ one:
   phone: MyString
   street_address: MyText
   city: MyString
-  state: MyString
   date: 2015-02-19
   Note: MyString
   request_id: 1
@@ -25,7 +24,6 @@ two:
   phone: MyString
   street_address: MyText
   city: MyString
-  state: MyString
   date: 2015-02-19
   Note: MyString
   request_id: 1

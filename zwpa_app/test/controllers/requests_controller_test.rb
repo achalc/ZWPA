@@ -18,7 +18,7 @@ class RequestsControllerTest < ActionController::TestCase
 
   test "should create request" do
     assert_difference('Request.count') do
-      post :create, request: { Note: @request.Note, city: @request.city, contact_firstname: @request.contact_firstname, contact_lastname: @request.contact_lastname, customer_id: @request.customer_id, date: @request.date, description: @request.description, email: @request.email, phone: @request.phone, photo: @request.photo, request_id: @request.request_id, state: @request.state, street_address: @request.street_address, title: @request.title }
+      post :create, request: { Note: @request.Note, city: @request.city, contact_firstname: @request.contact_firstname, contact_lastname: @request.contact_lastname, customer_id: @request.customer_id, date: @request.date, description: @request.description, email: @request.email, phone: @request.phone, photo: @request.photo, request_id: @request.request_id, street_address: @request.street_address, title: @request.title }
     end
 
     assert_redirected_to request_path(assigns(:request))
@@ -35,7 +35,7 @@ class RequestsControllerTest < ActionController::TestCase
   end
 
   test "should update request" do
-    patch :update, id: @request, request: { Note: @request.Note, city: @request.city, contact_firstname: @request.contact_firstname, contact_lastname: @request.contact_lastname, customer_id: @request.customer_id, date: @request.date, description: @request.description, email: @request.email, phone: @request.phone, photo: @request.photo, request_id: @request.request_id, state: @request.state, street_address: @request.street_address, title: @request.title }
+    patch :update, id: @request, request: { Note: @request.Note, city: @request.city, contact_firstname: @request.contact_firstname, contact_lastname: @request.contact_lastname, customer_id: @request.customer_id, date: @request.date, description: @request.description, email: @request.email, phone: @request.phone, photo: @request.photo, request_id: @request.request_id, street_address: @request.street_address, title: @request.title }
     assert_redirected_to request_path(assigns(:request))
   end
 
