@@ -15,8 +15,10 @@ class AuditsController < ApplicationController
   # GET /audits/new
   def new
     @audit = Audit.new
-    @audit.wastes.build    
-    @waste = Waste.new
+    @req = Request.find_by_id(params[:request_id])
+    @audit.request_id = @req.id
+    # @audit.wastes.build    
+    # @waste = Waste.new
   end
 
   # GET /audits/1/edit
@@ -28,7 +30,7 @@ class AuditsController < ApplicationController
   def create
     @audit = Audit.new(audit_params)
 
-    @waste.audit_id = @audit.id
+    # @waste.audit_id = @audit.id
 
     respond_to do |format|
       if @audit.save

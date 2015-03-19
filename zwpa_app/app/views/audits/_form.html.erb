@@ -17,12 +17,11 @@
         <fieldset>
           <legend><%= controller.action_name.capitalize %> Audit</legend>
          
-           <%= audit_form.label :request_id %><br>
-           <%= audit_form.number_field :request_id %>
+           <%#= audit_form.label :request_id %><br>
+           <%= audit_form.hidden_field :request_id %>
            <%= audit_form.label :date %><br>
            <%= audit_form.date_select :date %>
-           <%= audit_form.label :generator %><br>
-           <%= audit_form.input :generator, :collection => ['Trash', 'Recycle', 'Compost'], :as => :radio_buttons, label: '' %>
+           <%= audit_form.input :generator, :collection => ['Trash', 'Recycle', 'Compost'], :as => :collection_select, label: 'Generator' %>
            <%= audit_form.label :time_period %><br>
            <%= audit_form.text_field :time_period %>
            <%= audit_form.label :location %><br>       
@@ -31,7 +30,7 @@
         </fieldset>
       </div>
 
-    <div class="span5">
+    <!-- <div class="span5">
       <legend>Items</legend>
         <div id="wastes">
         <%= simple_nested_form_for @audit do |f| %>
@@ -45,7 +44,7 @@
             <br /><%#= audit_form.link_to_add("Add Item", :wastes, :class => 'button tiny') %>
           </p>
         </div> 
-      </div>
+      </div> -->
 
 
 
