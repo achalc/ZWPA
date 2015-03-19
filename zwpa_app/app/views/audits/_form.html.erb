@@ -1,4 +1,5 @@
-<%= form_for(@audit) do |f| %>
+<%= simple_nested_form_for(@audit, html: { class: 'form-horizontal', class: 'formtext' }) do |audit_form| %>
+
   <% if @audit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@audit.errors.count, "error") %> prohibited this audit from being saved:</h2>
@@ -11,27 +12,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :request_id %><br>
-    <%= f.number_field :request_id %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :origin %><br>
-    <%= f.text_field :origin %>
-  </div>
-  <div class="field">
-    <%= f.label :time_period %><br>
-    <%= f.text_field :time_period %>
-  </div>
-  <div class="field">
-    <%= f.label :dumpster_type %><br>
-    <%= f.text_field :dumpster_type %>
-  </div>
+    <div class="row">
+      <div class="span7">
+        <fieldset>
+          <legend><%= controller.action_name.capitalize %> Audit</legend>
+         
+           <%= audit_form.label :request_id %><br>
+           <%= audit_form.number_field :request_id %>
+           <%= audit_form.label :date %><br>
+           <%= audit_form.date_select :date %>
+           <%= audit_form.label :generator %><br>
+           <%= audit_form.input :generator, :collection => ['Trash', 'Recycle', 'Compost'], :as => :radio_buttons, label: '' %>
+           <%= audit_form.label :time_period %><br>
+           <%= audit_form.text_field :time_period %>
+           <%= audit_form.label :location %><br>       
+           <%= audit_form.text_field :location %>
+
+        </fieldset>
+      </div>
+
+    <div class="span5">
+      <legend>Items</legend>
+        <div id="wastes">
+        <%= simple_nested_form_for @audit do |f| %>
+          <%= f.fields_for :wastes do |waste_form| %>
+            Material Type:<%= waste_form.select :material_type, ["abc", "hi hi"] %>
+            Weight: <%= waste_form.text_field :weight %>
+            Origin:<%= waste_form.text_field :origin %>
+          <% end %>
+          <p><%= f.link_to_add "Add a item", :wastes %></p>          <% end %> 
+          <p>
+            <br /><%#= audit_form.link_to_add("Add Item", :wastes, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= audit_form.submit %>
   </div>
 <% end %>

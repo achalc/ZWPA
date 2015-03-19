@@ -5,9 +5,8 @@
     <tr>
       <th>Request</th>
       <th>Date</th>
-      <th>Origin</th>
       <th>Time period</th>
-      <th>Dumpster type</th>
+      <th>Generator</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,12 +18,10 @@
       <tr>
         <td><%= audit.request_id %></td>
         <td><%= audit.date %></td>
-        <td><%= audit.origin %></td>
         <td><%= audit.time_period %></td>
-        <td><%= audit.dumpster_type %></td>
+        <td><%= audit.generator %></td>
         <td><%= link_to 'Show', audit %></td>
         <td><%= link_to 'Edit', edit_audit_path(audit) %></td>
-        <td><%= link_to 'Destroy', audit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

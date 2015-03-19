@@ -41,6 +41,8 @@ gem 'simple_form'
 #For image upload
 gem "paperclip", "~> 4.2"
 
+gem "nested_form"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -69,6 +69,6 @@ class WastesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def waste_params
-      params.require(:waste).permit(:audit_id, :note, :weight, :material_type)
+      params.require(:waste).permit(:audit_id, :weight, :material_type)
     end
 end
