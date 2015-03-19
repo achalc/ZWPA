@@ -15,6 +15,8 @@ class WastesController < ApplicationController
   # GET /wastes/new
   def new
     @waste = Waste.new
+    @audit = Audit.find_by_id(params[:audit_id])
+    @waste.audit_id = @audit.id
   end
 
   # GET /wastes/1/edit
@@ -28,7 +30,7 @@ class WastesController < ApplicationController
 
     respond_to do |format|
       if @waste.save
-        format.html { redirect_to @waste, notice: 'Waste was successfully created.' }
+        format.html { redirect_to @waste.audit, notice: 'Waste was successfully created.' }
         format.json { render action: 'show', status: :created, location: @waste }
       else
         format.html { render action: 'new' }
