@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Request:</strong>
@@ -11,19 +11,42 @@
 </p>
 
 <p>
-  <strong>Origin:</strong>
-  <%= @audit.origin %>
-</p>
-
-<p>
   <strong>Time period:</strong>
   <%= @audit.time_period %>
 </p>
 
 <p>
-  <strong>Dumpster type:</strong>
-  <%= @audit.dumpster_type %>
+  <strong>Generator:</strong>
+  <%= @audit.generator %>
 </p>
 
 <%= link_to 'Edit', edit_audit_path(@audit) %> |
 <%= link_to 'Back', audits_path %>
+ -->
+
+ <div class="small-12 large-8 columns">
+ 	<p id="notice"><%= notice %></p>
+
+ 	<h4>
+	 	<%= link_to @audit.request.customer.company_name, @audit.request.customer %> > 
+	    <%= @audit.request.date.strftime('%B %e, %Y') %>
+ 	</h4>
+
+ 	<h1 class="button-head">Audit Details</h1>
+ 	<div class="add_button show-for-medium-up">
+     <ul class="button-group radius ">
+      <li><%=link_to "+ Add Waste",new_waste_path(:audit_id => @audit.id), class: "button tiny "%></li>
+    </ul>
+  	</div>
+
+  	<%= render 'wastes_for_audit' %>
+
+
+
+
+
+
+
+
+
+ </div>

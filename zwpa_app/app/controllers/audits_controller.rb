@@ -10,11 +10,16 @@ class AuditsController < ApplicationController
   # GET /audits/1
   # GET /audits/1.json
   def show
+    @wastes = @audit.wastes.to_a
   end
 
   # GET /audits/new
   def new
     @audit = Audit.new
+    @req = Request.find_by_id(params[:request_id])
+    @audit.request_id = @req.id
+    # @audit.wastes.build    
+    # @waste = Waste.new
   end
 
   # GET /audits/1/edit
@@ -25,6 +30,8 @@ class AuditsController < ApplicationController
   # POST /audits.json
   def create
     @audit = Audit.new(audit_params)
+
+    # @waste.audit_id = @audit.id
 
     respond_to do |format|
       if @audit.save
@@ -69,6 +76,7 @@ class AuditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audit_params
-      params.require(:audit).permit(:request_id, :date, :origin, :time_period, :dumpster_type)
+      params.require(:audit).permit(:request_id, :date, :time_period, :generator, :location, wastes_attributes: [:id, :material_type, :weight, :origin])
     end
+
 end
