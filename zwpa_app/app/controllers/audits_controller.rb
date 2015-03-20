@@ -10,6 +10,7 @@ class AuditsController < ApplicationController
   # GET /audits/1
   # GET /audits/1.json
   def show
+    @wastes = @audit.wastes.to_a
   end
 
   # GET /audits/new

@@ -1,0 +1,13 @@
+<% if !@wastes.empty? %>
+	<table>
+		<tbody>
+			<% @wastes.each do |was| %>
+				<tr>
+					<td width="300"><%=link_to was.material_type.to_s + ' ' + was.weight.to_s, edit_waste_path(was) %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% else %>
+	<p> There are no waste entries.</p>
+<% end %> 

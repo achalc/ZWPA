@@ -37,7 +37,9 @@
      <ul class="button-group radius ">
       <li><%=link_to "+ Add Waste",new_waste_path(:audit_id => @audit.id), class: "button tiny "%></li>
     </ul>
-  </div>
+  	</div>
+
+  	<%= render 'wastes_for_audit' %>
 
 
 
