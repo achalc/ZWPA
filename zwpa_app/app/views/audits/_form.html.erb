@@ -17,7 +17,7 @@
         <fieldset>
           <legend><%= controller.action_name.capitalize %> Audit</legend>
          
-           <%= audit_form.hidden_field :request_id, input_html: {value: @req_id} %>           
+           <%= audit_form.input :request_id, input_html: {value: @req_id} %>           
            <%= audit_form.date_select :date %>
            <%= audit_form.label :generator %><br>
            <%= audit_form.input :generator, :collection => ['Landfill', 'Recycle', 'Compost'], :as => :radio_buttons, label: '' %>
@@ -35,7 +35,7 @@
         <%= simple_nested_form_for @audit do |f| %>
            <%= f.fields_for :wastes do |waste_form| %>
               <%= waste_form.hidden_field :audit_id, input_html: {value: @aud_id}%>
-              Material Type:<%= waste_form.select :material_type, ["abc", "hi hi"] %>
+              Material Type:<%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Select material type..." %>
               Weight: <%= waste_form.text_field :weight %>
               Origin:<%= waste_form.text_field :origin %>
           <% end %>
