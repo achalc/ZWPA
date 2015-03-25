@@ -16,8 +16,10 @@
       <div class="span7">
         <fieldset>
           <legend><%= controller.action_name.capitalize %> Audit</legend>
-         
-           <%= audit_form.input :request_id, input_html: {value: @req_id} %>           
+          
+          <div class="reqid" style="display: none;">
+           <%= audit_form.input :request_id, input_html: {value: @req_id} %>  
+           </div>         
            <%= audit_form.date_select :date %>
            <%= audit_form.label :generator %><br>
            <%= audit_form.input :generator, :collection => ['Landfill', 'Recycle', 'Compost'], :as => :radio_buttons, label: '' %>
