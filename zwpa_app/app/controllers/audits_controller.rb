@@ -5,7 +5,7 @@ class AuditsController < ApplicationController
   # GET /audits.json
   def index
     @audits = Audit.all
-    # @wastes = @audit.wastes.to_a
+    @wastes = @audit.wastes.to_a
   end   
 
   # GET /audits/1
