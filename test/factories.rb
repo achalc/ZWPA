@@ -39,8 +39,8 @@ FactoryGirl.define do
 
 	factory :audit do
 		association :request
-		date Date.new(2015,1,4)
-		time_period "January 1-3, 2015"
+		start_date Date.new(2015,1,4)
+		end_date Date.new(2015,1,5)
 		generator "Trash"
 		location "Porter Hall"
 	end

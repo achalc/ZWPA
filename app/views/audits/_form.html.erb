@@ -1,33 +1,55 @@
-<%= form_for(@waste) do |f| %>
-  <% if @waste.errors.any? %>
+<%= simple_nested_form_for(@audit, html: { class: 'form-horizontal', class: 'formtext' }) do |audit_form| %>
+
+  <% if @audit.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@waste.errors.count, "error") %> prohibited this waste from being saved:</h2>
+      <h2><%= pluralize(@audit.errors.count, "error") %> prohibited this audit from being saved:</h2>
 
       <ul>
-      <% @waste.errors.full_messages.each do |msg| %>
+      <% @audit.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :audit_id %><br>
-    <%= f.number_field :audit_id %>
-  </div>
-  <div class="field">
-    <%= f.label :material_type %><br>
-    <%= f.text_field :material_type %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :origin %><br>
-    <%= f.text_field :origin %>
-  </div>
+    <div class="row">
+      <div class="span7">
+        <fieldset>
+          <legend><%= controller.action_name.capitalize %> Audit</legend>
+          
+          <div class="reqid" style="display: none;">
+           <%= audit_form.input :request_id, input_html: {value: @req_id} %>  
+           </div>         
+           <%= audit_form.input :start_date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter Start Date"}, label: false %>
+           <%= audit_form.input :end_date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter End Date"}, label: false %>
+           <%= audit_form.label :generator %><br>
+           <%= audit_form.input :generator, :collection => ['Landfill', 'Recycle', 'Compost'], :as => :radio_buttons, label: '' %>
+           <%= audit_form.label :location %><br>       
+           <%= audit_form.text_field :location %>
+
+        </fieldset>
+      </div>
+
+    <div class="span5">
+      <legend>Items</legend>
+        <div id="wastes">
+        <%= simple_nested_form_for @audit do |f| %>
+           <%= f.fields_for :wastes do |waste_form| %>
+              <%= waste_form.hidden_field :audit_id, input_html: {value: @aud_id}%>
+              Material Type:<%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Select material type..." %>
+              Weight: <%= waste_form.text_field :weight %>
+              Origin:<%= waste_form.text_field :origin %>
+          <% end %>
+          <p><%= f.link_to_add "Add a item", :wastes %></p>          <% end %> 
+          <p>
+            <br /><%#= audit_form.link_to_add("Add Item", :wastes, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= audit_form.submit %>
   </div>
 <% end %>

@@ -5,7 +5,8 @@ class AuditTest < ActiveSupport::TestCase
 	should have_many(:wastes)
 
 	should validate_presence_of(:request_id)
-	should validate_presence_of(:date)
+	should validate_presence_of(:start_date)
+	should validate_presence_of(:end_date)
 	should validate_presence_of(:generator)
 	should validate_presence_of(:location)
 

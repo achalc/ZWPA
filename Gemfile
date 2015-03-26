@@ -46,6 +46,8 @@ gem 'pg'
 
 gem "nested_form"
 
+gem 'validates_timeliness'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
