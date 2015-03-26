@@ -21,7 +21,7 @@ test:
   database: zwpa_test
   pool: 5
   timeout: 5000
-  username: zwpa
+  username: zwpa_test
   password: z3r0W@st3P@
 
 production:
