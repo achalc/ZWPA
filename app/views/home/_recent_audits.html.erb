@@ -4,15 +4,16 @@
     <th width="120">Generator</th>
     <th width="120">Start Date</th>
     <th width="120">End Date</th>
+    <th></th>
   </tr>
 
   <% audits.each do |audit| %>
     <tr>
-      <!-- How do I get the company name of request??? -->
-      <td><%= link_to audit.request.customer.company_name, audit_path(audit) %></td>
+      <td><%= link_to audit.request.customer.company_name, customers_path(audit.request.customer) %></td>
       <td><%= audit.generator%></td>
       <td><%= audit.start_date.strftime('%b %e, %Y')%></td>
       <td><%= audit.end_date.strftime('%b %e, %Y')%></td>
+      <td><%= link_to '>', audits_path(audit)%></td>
       
       
     </tr>
