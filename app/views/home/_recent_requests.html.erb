@@ -1,16 +1,15 @@
 <table class="table">
   <tr>
     <th>Client</th>
-    <th>Start Date</th>
+    <th>Date Initiated</th>
     <th></th>
   </tr>
 
   <% requests.each do |request| %>
     <tr>
-      <!-- How do I get the company name of request??? -->
-      <td><%= link_to request.customer.company_name, requests_path(request) %></td>
-      <td><%= link_to request.date.strftime('%b %e, %Y'), requests_path(request)%></td>
-      <td>></td>
+      <td><%= link_to request.customer.company_name, customers_path(request.customer) %></td>
+      <td><%= request.date.strftime('%b %e, %Y') %></td>
+      <td><%= link_to '>', requests_path(request)%></td>
       
       
     </tr>
