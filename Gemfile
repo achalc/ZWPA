@@ -48,6 +48,8 @@ gem "nested_form"
 
 gem 'validates_timeliness'
 
+gem 'activerecord-session_store'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

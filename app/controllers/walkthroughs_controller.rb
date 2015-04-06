@@ -34,7 +34,8 @@ class WalkthroughsController < ApplicationController
         format.html { redirect_to @walkthrough, notice: 'Questionnaire was successfully created.' }
         format.json { render action: 'show', status: :created, location: @walkthrough }
       else
-        format.html { render action: 'new' }
+        flash.keep[:notice] = @walkthrough.errors
+        format.html { redirect_to controller: 'walkthroughs', action: 'new', request_id: @walkthrough.request_id }
         format.json { render json: @walkthrough.errors, status: :unprocessable_entity }
       end
     end
@@ -48,7 +49,8 @@ class WalkthroughsController < ApplicationController
         format.html { redirect_to @walkthrough, notice: 'Questionnaire was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash.keep[:notice] = @walkthrough.errors
+        format.html { redirect_to controller: 'walkthroughs', action: 'edit', request_id: @walkthrough.request_id }
         format.json { render json: @walkthrough.errors, status: :unprocessable_entity }
       end
     end
