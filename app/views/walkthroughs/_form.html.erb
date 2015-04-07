@@ -2,7 +2,7 @@
 
   <% if not flash[:notice].nil? %>
     <div id="error_explanation">
-      <h2><%= pluralize(flash[:notice].count, "error") %> prohibited this audit from being saved:</h2>
+      <h2><%= pluralize(flash[:notice].count, "error") %> prohibited this questionnaire from being saved:</h2>
 
       <ul>
       <% flash[:notice].full_messages.each do |msg| %>
