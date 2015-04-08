@@ -16,9 +16,9 @@
   <div class="row">
       <div class="span7">
         <fieldset>
-          <legend>Customer</legend>
+          <legend>Client</legend>
 
-    <%= customer_form.label :company_name %><br>
+    <label>* Customer Name</label>
     <%= customer_form.text_field :company_name %>
   </div>
 
@@ -37,7 +37,7 @@
               Street Address: <%= request_form.text_field :street_address %>
               City: <%= request_form.text_field :city %>
               Zip: <%= request_form.text_field :zip_code %>
-              Date: <%= request_form.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter  Date"} %>
+              <%= request_form.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter  Date"} %>
           <% end %>
           <% end %> 
           <p>
