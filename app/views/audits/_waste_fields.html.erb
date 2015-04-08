@@ -1,0 +1,7 @@
+<%= f.simple_fields_for :wastes do |waste_form| %>
+  <%= waste_form.hidden_field :audit_id, input_html: {value: @aud_id}%>
+  Material Type:<%= waste_form.association :material_type, collection: @waste_material_types, prompt: "Select an existing material type..." %>
+  Weight: <%= waste_form.text_field :weight %>
+  Origin:<%= waste_form.text_field :origin %>
+  <%= f.link_to_remove "- Remove item", class: 'alert button round tiny right' %>
+<% end %>
