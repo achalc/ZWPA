@@ -1,16 +1,17 @@
 <%= simple_nested_form_for(@audit, html: { class: 'form-horizontal form-sub', class: 'formtext' }) do |audit_form| %>
 
-  <% if @audit.errors.any? %>
+  <% if not flash[:notice].nil? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@audit.errors.count, "error") %> prohibited this audit from being saved:</h2>
+      <h2><%= pluralize(flash[:notice].count, "error") %> prohibited this audit from being saved:</h2>
 
       <ul>
-      <% @audit.errors.full_messages.each do |msg| %>
+      <% flash[:notice].full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
 
   <div class="small-12 medium-6 columns">
     <h1>Audit</h1>

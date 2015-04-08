@@ -44,7 +44,8 @@ class AuditsController < ApplicationController
         format.html { redirect_to @audit, notice: 'Audit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @audit }
       else
-        format.html { render action: 'new' }
+        flash.keep[:notice] = @audit.errors
+        format.html { redirect_to controller: 'audits', action: 'new', request_id: @audit.request_id }
         format.json { render json: @audit.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +59,8 @@ class AuditsController < ApplicationController
         format.html { redirect_to @audit, notice: 'Audit was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash.keep[:notice] = @audit.errors
+        format.html { redirect_to controller: 'audits', action: 'edit', request_id: @audit.request_id }
         format.json { render json: @audit.errors, status: :unprocessable_entity }
       end
     end
