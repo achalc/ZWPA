@@ -69,7 +69,7 @@
 
           <div class="row">
             <div class="small-12 columns">
-              <label>Location</label>
+              <label>* Location</label>
             </div>
             <div class="field row">
               <div class="small-12 medium-6 columns">
@@ -91,7 +91,7 @@
               <%= waste_form.hidden_field :audit_id, input_html: {value: @aud_id}%>
               <div class="row">
                 <div class="small-12 medium-5 columns">
-                  <%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Select material type..." %>
+                  <%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Material type (required)..." %>
                 </div>
                 <div class="small-4 medium-2 columns">
                   <%= waste_form.text_field :weight, placeholder: "Weight (lbs)..." %>
