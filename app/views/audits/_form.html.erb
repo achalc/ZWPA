@@ -15,9 +15,16 @@
     <h1>Audit</h1>
   </div>
 
+  <div class="small-12 medium-6 columns">
+      <div class="actions">
+        <br><br><br>
+      </div>
+    </div>
+
   <div class="form-back">
 
     <div class="row">
+      <div class="span 7">
         <fieldset>
           <legend>Audit Details</legend>
           
@@ -29,6 +36,7 @@
             <div class="small-12 columns">
               <label>* Generator</label>
             </div>
+          </div>
 
             <div class="field row">
               <div class="small-12 medium-4 columns">
@@ -43,12 +51,13 @@
                 <%= audit_form.input :generator, :collection => ['Compost'], :as => :radio_buttons, label: "", required: false %>
               </div>
             </div>  
-          </div>
+          
 
           <div class="row">
             <div class="small-12 columns">
               <label>Time Period</label>
             </div>
+          </div>
             <div class="field row">
               <div class="small-12 medium-6 columns">
                 <%= audit_form.input :start_date, as: :string, input_html: { class: 'datepicker', placeholder: "Select Start Date", readonly:"readonly"}, label: 'Start' %>
@@ -70,8 +79,10 @@
           </div>
         </fieldset>
       </div>
+      
 
     <div class="row">
+      <div class="span 5">
       <fieldset>
       <legend>Waste Items</legend>
         <div id="wastes">
@@ -95,9 +106,13 @@
         </div> 
       </fieldset>
     </div>
-    <div class="small-12 medium-6 columns">
+    
+  </div>
+
+  <div class="small-12 medium-6 columns">
       <div class="actions">
         <%= audit_form.submit "Save Audit", class: 'button' %>
       </div>
-    </div>
+  </div>
+
 <% end %>
