@@ -1,70 +1,61 @@
-<%= simple_nested_form_for(@audit, html: { class: 'form-horizontal form-sub', class: 'formtext' }) do |audit_form| %>
+<%= simple_nested_form_for(@audit, html: { class: 'form-horizontal', class: 'formtext' }) do |audit_form| %>
 
-  <% if not flash[:notice].nil? %>
+  <% if @audit.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(flash[:notice].count, "error") %> prohibited this audit from being saved:</h2>
+      <h2><%= pluralize(@audit.errors.count, "error") %> prohibited this audit from being saved:</h2>
 
       <ul>
-      <% flash[:notice].full_messages.each do |msg| %>
+      <% @audit.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-
   <div class="small-12 medium-6 columns">
     <h1>Audit</h1>
-  </div>
-
-  <div class="small-12 medium-6 columns">
-    <%= audit_form.submit "Save", class: 'button' %>
   </div>
 
   <div class="form-back">
 
     <div class="row">
-      <div class="span7">
         <fieldset>
           <legend>Audit Details</legend>
           
           <div class="reqid" style="display: none;">
            <%= audit_form.input :request_id, input_html: {value: @req_id} %>  
-           </div> 
+          </div>    
 
           <div class="row">
             <div class="small-12 columns">
               <label>* Generator</label>
             </div>
+
+            <div class="field row">
+              <div class="small-12 medium-4 columns">
+                <%= audit_form.input :generator, :collection => ['Landfill'], :as => :radio_buttons, label: "", required: false %>
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= audit_form.input :generator, :collection => ['Recycle'], :as => :radio_buttons, label: "", required: false %>
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= audit_form.input :generator, :collection => ['Compost'], :as => :radio_buttons, label: "", required: false %>
+              </div>
+            </div>  
           </div>
-
-          <div class="field row">
-            <div class="small-12 medium-4 columns">
-              <%= audit_form.input :generator, :collection => ['Landfill'], :as => :radio_buttons, label: "", required: false %>
-            </div>
-
-            <div class="small-12 medium-4 columns">
-              <%= audit_form.input :generator, :collection => ['Recycle'], :as => :radio_buttons, label: "", required: false %>
-            </div>
-
-            <div class="small-12 medium-4 columns">
-              <%= audit_form.input :generator, :collection => ['Compost'], :as => :radio_buttons, label: "", required: false %>
-            </div>
-          </div>  
-          <br>
 
           <div class="row">
             <div class="small-12 columns">
               <label>Time Period</label>
             </div>
-          </div>
-          <div class="field row">
-            <div class="small-12 medium-6 columns">
-              <%= audit_form.input :start_date, as: :string, input_html: { class: 'datepicker', placeholder: "Select Start Date", readonly:"readonly"}, label: 'Start' %>
-            </div>
-            <div class="small-12 medium-6 columns">
-              <%= audit_form.input :end_date, as: :string, input_html: { class: 'datepicker', placeholder: "Select End Date", readonly:"readonly"}, label: 'End' %>
-            </div>
+            <div class="field row">
+              <div class="small-12 medium-6 columns">
+                <%= audit_form.input :start_date, as: :string, input_html: { class: 'datepicker', placeholder: "Select Start Date", readonly:"readonly"}, label: 'Start' %>
+              </div>
+              <div class="small-12 medium-6 columns">
+                <%= audit_form.input :end_date, as: :string, input_html: { class: 'datepicker', placeholder: "Select End Date", readonly:"readonly"}, label: 'End' %>
+              </div>
           </div>
 
           <div class="row">
@@ -72,7 +63,7 @@
               <label>Location</label>
             </div>
             <div class="field row">
-              <div class="small-12 medium-6 columns">      
+              <div class="small-12 medium-6 columns">
                 <%= audit_form.text_field :location, placeholder: "Enter location..." %>
               </div>
             </div>
@@ -80,46 +71,32 @@
         </fieldset>
       </div>
 
+      <div class="small-12 medium-6 columns">
+  <div class="actions">
+    <%= audit_form.submit "Save Audit", class: 'button' %>
+  </div>
+</div>
+
     <div class="span5">
-      <legend>Items</legend>
+      <fieldset>
+      <legend>Waste Items</legend>
         <div id="wastes">
         <%= simple_nested_form_for @audit do |f| %>
            <%= f.fields_for :wastes do |waste_form| %>
               <%= waste_form.hidden_field :audit_id, input_html: {value: @aud_id}%>
-              <div class="row">
-                <div class="small-12 medium-4 columns">
-                  <%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Select material type..." %>
-                </div>
-                <div class="small-12 medium-4 columns">
-                  <%= waste_form.text_field :weight, placeholder: "Enter weight (lbs)..." %>
-                </div>
-                <div class="small-12 medium-4 columns">
-                  <%= waste_form.text_field :origin, placeholder: "Enter origin..." %>
-                </div>
+              Material Type:<%= waste_form.select :material_type, ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"], prompt: "Select material type..." %>
+              Weight: <%= waste_form.text_field :weight %>
+              Origin:<%= waste_form.text_field :origin %>
           <% end %>
-            <%= f.link_to_add "+ Add an item", :wastes, class: 'button round tiny left' %>  
-          <% end %>
-         
+          <p><%= f.link_to_add "+ Add an item", :wastes, class: 'button round tiny left' %></p>          <% end %> 
           <p>
             <br /><%#= audit_form.link_to_add("Add Item", :wastes, :class => 'button tiny') %>
           </p>
         </div> 
+        </fieldset>
       </div>
+    </div>
 
-      <div class="sticky-footer">
-      <%#= render 'bottom_bar' %>
-        <div class="fixed-bottom  show-for-medium-down">
-          <nav class="top-bar bottom-bar" >
-            <section class="top-bar-section">
-              <%= link_to new_note_path do %>
-                <div class="bottom-button">
-                  Add Note
-                </div>
-              <%end%>
 
-  <div class="actions">
-    <%= audit_form.submit %>
-  </div>
 
-  
 <% end %>
