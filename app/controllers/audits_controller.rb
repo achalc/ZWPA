@@ -27,6 +27,7 @@ class AuditsController < ApplicationController
     @aud_id = @audit.id
     @audit.wastes.build        
     @waste = Waste.new
+    @waste_material_types = ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"]
   end
 
   # GET /audits/1/edit
