@@ -33,6 +33,7 @@ class AuditsController < ApplicationController
   # GET /audits/1/edit
   def edit
     @req_id = Audit.find(params[:id]).request_id
+    @waste_material_types = ["Batteries", "Cardboard", "Compostable Food Service Ware", "Dairy and Juice Containers", "Electronic Waste", "Fluorescent Tubes", "Food Scraps", "Metal Cans, Glass Bottles, and Jars", "Miscellaneous", "Mixed Paper, Newspaper & Magazines", "Mylar Film", "Paper Towels", "Plastic (1-5 & 7) and Containers", "Plastic Film", "Restroom Waste", "Reuse (Clothes, books, pens, etc.)", "Toner Cartridges", "White Ledger Paper"]
   end
 
   # POST /audits
