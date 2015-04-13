@@ -1,0 +1,4 @@
+  Material Type:<%= waste_form.select :material_type, @waste_material_types, prompt: "Select material type..." %>
+  Weight: <%= waste_form.text_field :weight %>
+  Origin:<%= waste_form.text_field :origin %>
+  <%= f.link_to_remove "- Remove item", class: 'alert button round tiny right' %>
