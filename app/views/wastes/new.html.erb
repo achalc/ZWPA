@@ -1,5 +1,6 @@
 <h1>New waste</h1>
 
-<%= render 'form' %>
+<%= render 'form' if not @custom  %>
+<%= render 'form' if @custom %>
 
 <%= link_to 'Back', wastes_path %>
