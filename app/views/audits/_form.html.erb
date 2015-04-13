@@ -94,8 +94,8 @@
               Origin:<%= waste_form.text_field :origin %>
               <%= f.link_to_remove "- Remove item", class: 'alert button round tiny right' %>
           <% end %>
-          <p><%= f.link_to_add_association "+ Add item", :wastes, data: { custom: false}, class: 'button round tiny left' %>
-            <%= f.link_to_add_association "+ Add Custom Item", :wastes, partial: 'custom_waste_form' , class: 'button round tiny left'%>
+          <p><%= f.link_to_add "+ Add item", :wastes, class: 'button round tiny left' %>
+            <%#= f.link_to_add_association "+ Add Custom Item", :wastes, partial: 'custom_waste_form' , class: 'button round tiny left'%>
           </p>          
 
           <% end %> 
