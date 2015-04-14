@@ -3,22 +3,26 @@
 <% if !@requests.empty? %>
 
   <table class="table" width="100%">
-    <tr>
-      <th>Client</th>
-      <th>Start Date</th>
-      <th></th>
-    </tr>
-
-    <% requests.each do |request| %>
+    <thead>
       <tr>
-        <!-- How do I get the company name of request??? -->
-        <td><%= link_to request.customer.company_name, request %></td>
-        <td><%= link_to request.date.strftime('%b %e, %Y'), request%></td>
-        <td><%= link_to ">", request%></td>
-        
-        
+        <th>Client</th>
+        <th>Start Date</th>
+        <th></th>
       </tr>
-    <% end %>
+    </thead>
+
+    <tbody>
+      <% requests.each do |request| %>
+        <tr>
+          <!-- How do I get the company name of request??? -->
+          <td><%= link_to request.customer.company_name, request %></td>
+          <td><%= link_to request.date.strftime('%b %e, %Y'), request%></td>
+          <td><%= link_to ">", request%></td>
+          
+          
+        </tr>
+      <% end %>
+    </tbody>
   </table></br>
 
   <%= link_to "View All Requests", requests_path %>

@@ -2,24 +2,27 @@
 <% if !@audits.empty? %>
 
   <table class="table" width="100%">
-    <tr>
-      <th>Client</th>
-      <th>Generator</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-    </tr>
-
-    <% audits.each do |audit| %>
+    <thead>
       <tr>
-        <!-- How do I get the company name of request??? -->
-        <td><%= link_to audit.request.customer.company_name, audit_path(audit) %></td>
-        <td><%= audit.generator%></td>
-        <td><%= audit.start_date.strftime('%b %e, %Y')%></td>
-        <td><%= audit.end_date.strftime('%b %e, %Y')%></td>
-        
-        
+        <th>Client</th>
+        <th>Generator</th>
+        <th>Start Date</th>
+        <th>End Date</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% audits.each do |audit| %>
+        <tr>
+          <!-- How do I get the company name of request??? -->
+          <td><%= link_to audit.request.customer.company_name, audit_path(audit) %></td>
+          <td><%= audit.generator%></td>
+          <td><%= audit.start_date.strftime('%b %e, %Y')%></td>
+          <td><%= audit.end_date.strftime('%b %e, %Y')%></td>
+          
+          
+        </tr>
+      <% end %>
+    </tbody>
   </table></br>
 
 <% else %>

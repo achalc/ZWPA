@@ -62,12 +62,12 @@ table{
 	padding: 2em 2em;
 	border-style: solid;
 	border-radius: 10px;
-	transition: all 0.3s ease-in-out 0.1s;
+	transition: all 0.1s ease-in-out 0.1s;
 }
 
 .option_hover{
-	margin: .5em;
-	border-color:rgba(15, 52, 15, 0.4) ;
+	border-color:rgba(36, 71, 53, 1) ;
+	
 
 }
 
@@ -83,5 +83,16 @@ a:visited {
 
 .smallbutton:visited{
 	color: white;
+}
+
+
+tr {
+    cursor: pointer;
+}
+
+
+
+table tbody tr:hover{
+	background-color: #D3D3D3;
 }
 
