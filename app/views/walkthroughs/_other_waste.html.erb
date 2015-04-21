@@ -1,82 +1,86 @@
-<%= simple_form_for(@walkthrough, html: { class: 'form-horizontal'}) do |f| %>  
+<dl class="accordion" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#othermat"><h4>Other Materials</h4></a>
+        <div id="othermat" class="content">
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Furniture </label><br>
 
-  <h4>Other Materials</h4>
+            </div>
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Furniture </label><br>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
 
-      </div>
+            </div>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
 
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_furniture, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
-
-
-    </div>
-
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Linens / Uniforms </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+            </div>
 
 
-    </div>
+          </div>
+
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Linens / Uniforms </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_linens_uniforms, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
 
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Construction Debris </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_construction_debris , :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_construction_debris, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+          </div>
 
 
-    </div>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Construction Debris </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_construction_debris , :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_construction_debris, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
 
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Generate Pallets </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+          </div>
 
 
-  </div>
-<% end %>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Generate Pallets </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_pallets, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
+
+
+          </div>
+        </div>
+      </dd>
+      
+    </dl>
+    </br>

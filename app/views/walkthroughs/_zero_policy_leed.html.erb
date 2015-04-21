@@ -1,0 +1,90 @@
+<div class="field">
+      <label>Does your company currently have a <strong>Zero Waste Policy<strong> in place?</label><br>
+      <p>This would require 90% of overall diversion of landfill for non-hazardous wastes discarded materials are reused, recycled, composted, or recovered for productive use in nature or the economy at biological temperatures.</p>
+
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :ZW_policy, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :ZW_policy, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :ZW_policy, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+  <div class="field">
+      <label> Is your building/organization LEED certified? </label><br>
+
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :LEED, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :LEED, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :LEED, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="field">
+      <label>If so, is your buiding/organization looking to recertify your LEED building? </label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recertify_LEED, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recertify_LEED, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recertify_LEED, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+
+    </div>
+  
+    <div class="field">
+
+      <label> Is your buiding requesting PRC for waste audit services? </label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :requesting_audit_services, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :requesting_audit_services, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :requesting_audit_services, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

@@ -31,29 +31,29 @@ class Walkthrough < ActiveRecord::Base
 	validates_inclusion_of :current_compost, in: %w[Yes No DK], allow_nil: true
 	validates_inclusion_of :past_compost, in: %w[Yes No DK], allow_nil: true
 
-	validates_inclusion_of :generate_toner_ink, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_toner_ink, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_CFLs, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_CFLs, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_batteries, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_batteries, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_computers, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_computers, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_cellphones, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_cellphones, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_tvs, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_tvs, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_other_corded_equipment, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_other_corded_equipment, in: %w[Yes No DK], allow_nil: true
+	#validates_inclusion_of :generate_toner_ink, in: %w[Yes No DK], allow_nil: true
+	#validates_inclusion_of :recycle_toner_ink, in: %w[Yes No DK], allow_nil: true
+	#validates_inclusion_of :generate_CFLs, in: %w[Yes No DK], allow_nil: true
+	#validates_inclusion_of :recycle_CFLs, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_batteries, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_batteries, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_computers, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_computers, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_cellphones, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_cellphones, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_tvs, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_tvs, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_other_corded_equipment, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_other_corded_equipment, in: %w[Yes No DK], allow_nil: true
 	
-	validates_inclusion_of :generate_furniture, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_furniture, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_linens_uniforms, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_linens_uniforms, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_construction_debris, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_construction_debris, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :generate_pallets, in: %w[Yes No DK], allow_nil: true
-	validates_inclusion_of :recycle_pallets, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_furniture, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_furniture, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_linens_uniforms, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_linens_uniforms, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_construction_debris, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_construction_debris, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :generate_pallets, in: %w[Yes No DK], allow_nil: true
+	# validates_inclusion_of :recycle_pallets, in: %w[Yes No DK], allow_nil: true
 
 	validates_inclusion_of :ZW_policy, in: %w[Yes No DK], allow_nil: true
 	validates_inclusion_of :LEED, in: %w[Yes No DK], allow_nil: true

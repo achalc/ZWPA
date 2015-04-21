@@ -1,4 +1,4 @@
-<%= simple_form_for(@request, html: { class: 'form-horizontal form-sub'}) do |f| %>
+<%= simple_form_for(@request, html: { class: 'form-horizontal form-sub reqForm'}) do |f| %>
   <% if @request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
@@ -26,11 +26,13 @@
       <div class="small-12 medium-6 columns">
         <div class="field row">
           <div class="small-3 columns">
-            <label for="right-label" class="left inline">Client</label>
+            <label for="right-label" class="left inline">* Client</label>
           </div>
           <div class="small-9 columns">
             <%= f.collection_select :customer_id, Customer.alphabetical.all, :id, :company_name, prompt: "Select client..." %>
+          <%=link_to "Add new client...", new_customer_path%><br/></br>
           </div>
+
         </div>
       </div>
       <div class="small-12 medium-6 columns">
@@ -39,7 +41,7 @@
             <label for="right-label" class="left inline">* Date</label>
           </div>
           <div class="small-9 columns">
-            <%= f.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter Date of Audit", readonly:"readonly"}, label: false %>
+            <%= f.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter Date", readonly:"readonly"}, label: false %>
           </div>
         </div>
       </div>
@@ -94,10 +96,10 @@
       <div class="small-12 medium-6 columns">
         <div class="field row">
           <div class="small-3 columns">
-            <label for="right-label" class="left inline">Phone (111-222-3333)</label>
+            <label for="right-label" class="left inline">Phone</label>
           </div>
           <div class="small-9 columns">
-            <%= f.text_field :phone %>
+            <%= f.text_field :phone, placeholder: "e.g. 111-222-3333" %>
           </div>
         </div>
       </div>
@@ -141,7 +143,7 @@
 
 <div class="small-12 medium-6 columns">
     <div class="actions">
-      
+      <%= link_to 'View all Requests', requests_path, :class => 'button' %>
       <%= f.submit "Save", class: 'button' %>
     </div>
   </div>

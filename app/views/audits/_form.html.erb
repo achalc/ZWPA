@@ -111,7 +111,13 @@
 
   <div class="small-12 medium-6 columns">
       <div class="actions">
-        <%= audit_form.submit "Save Audit", class: 'button' %>
+        <% if defined?(edit) && edit %>
+          <%= link_to 'Cancel', audit_path(@audit), class: 'button alert' %>
+        <% elsif defined?(newaudit) && newaudit %>
+          <%= link_to 'Back', requests_path, :class => 'button' %> 
+        <%end%>
+        <%= audit_form.submit "Save Audit", class: 'button success' %>
+
       </div>
   </div>
 

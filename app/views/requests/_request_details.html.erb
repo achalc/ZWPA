@@ -1,43 +1,71 @@
 <div class="panel">
 	<p>
 		<h4 class="button-head">Request Details</h4>
-		<div><%= link_to 'Update', edit_request_path(@request), class: 'button round tiny left ' %></div></br>
+		<div><%= link_to 'Update', edit_request_path(@request), class: 'button tiny left ' %></div></br>
 	</p>
 </br>
 	<p>
-    <strong>Customer:</strong>
-    <%= @request.customer.company_name %>
+    <strong>Client:</strong>
+    <% if @request.customer.company_name.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.customer.company_name %>
+    <% end %>    
   </p>
 
   <p>
     <strong>Contact Name:</strong>
-    <%= @request.name + " (" + @request.title + ")" %>
+    <% if (@request.contact_firstname.empty?) && (@request.contact_lastname.empty?) %>
+      <%= "n/a" %>
+    <% else %>
+      <% if @request.title.empty? %>
+        <%= @request.name %>
+      <% else %>
+        <%= @request.name + " (" + @request.title + ")" %>
+      <% end %>
+    <% end %>
   </p>
 
   <p>
     <strong>Email:</strong>
-    <%= @request.email %>
+    <% if @request.email.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.email %>
+    <% end %>
   </p>
 
   <p>
     <strong>Phone:</strong>
-    <%= @request.phone %>
-  </p>
+    <% if @request.phone.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.phone %>
+    <% end %>  </p>
 
   <p>
     <strong>Street Address:</strong>
-    <%= @request.street_address %>
-  </p>
+    <% if @request.street_address.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.street_address %>
+    <% end %>  </p>
 
   <p>
     <strong>City:</strong>
-    <%= @request.city %>
-  </p>
+    <% if @request.city.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.city %>
+    <% end %>  </p>
 
   <p>
     <strong>Zip Code:</strong>
-    <%= @request.zip_code %>
-  </p>
+    <% if @request.zip_code.empty? %>
+      <%= "n/a" %>
+    <% else %>
+      <%= @request.zip_code %>
+    <% end %>  </p>
 
 
   <p>

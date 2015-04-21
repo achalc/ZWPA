@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406182325) do
+ActiveRecord::Schema.define(version: 20150414194023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,36 +109,36 @@ ActiveRecord::Schema.define(version: 20150406182325) do
     t.text     "discontinued_recycling"
     t.string   "current_compost"
     t.string   "past_compost"
-    t.string   "generate_toner_ink"
-    t.string   "recycle_toner_ink"
-    t.string   "generate_CFLs"
-    t.string   "recycle_CFLs"
-    t.string   "generate_batteries"
-    t.string   "recycle_batteries"
-    t.string   "generate_computers"
-    t.string   "recycle_computers"
-    t.string   "generate_cellphones"
-    t.string   "recycle_cellphones"
-    t.string   "generate_tvs"
-    t.string   "recycle_tvs"
-    t.string   "generate_other_corded_equipment"
-    t.string   "generate_furniture"
-    t.string   "recycle_furniture"
-    t.string   "generate_linens_uniforms"
-    t.string   "recycle_linens_uniforms"
-    t.string   "generate_construction_debris"
-    t.string   "recycle_construction_debris"
-    t.string   "generate_pallets"
-    t.string   "recycle_pallets"
     t.string   "ZW_policy"
     t.string   "LEED"
     t.string   "recertify_LEED"
     t.string   "requesting_audit_services"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "recycle_other_corded_equipment"
     t.text     "waste_containers_other"
     t.date     "date"
+    t.text     "generate_toner_ink",              array: true
+    t.text     "recycle_toner_ink",               array: true
+    t.text     "generate_CFLs",                   array: true
+    t.text     "recycle_CFLs",                    array: true
+    t.text     "generate_batteries",              array: true
+    t.text     "recycle_batteries",               array: true
+    t.text     "generate_computers",              array: true
+    t.text     "recycle_computers",               array: true
+    t.text     "generate_cellphones",             array: true
+    t.text     "recycle_cellphones",              array: true
+    t.text     "generate_tvs",                    array: true
+    t.text     "recycle_tvs",                     array: true
+    t.text     "generate_other_corded_equipment", array: true
+    t.text     "recycle_other_corded_equipment",  array: true
+    t.text     "generate_furniture",              array: true
+    t.text     "recycle_furniture",               array: true
+    t.text     "generate_linens_uniforms",        array: true
+    t.text     "recycle_linens_uniforms",         array: true
+    t.text     "generate_construction_debris",    array: true
+    t.text     "recycle_construction_debris",     array: true
+    t.text     "generate_pallets",                array: true
+    t.text     "recycle_pallets",                 array: true
   end
 
   create_table "wastes", force: true do |t|

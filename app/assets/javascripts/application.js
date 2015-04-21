@@ -35,6 +35,31 @@ $(function() {
   //check which checkboxes/radio boxes need to be checked on load, then add css
   $( document ).ready(function(){
 
+  	//checks that client is selected before submit on
+  	//'new request' page
+  	$('.reqForm').on("submit", function(){
+  		if ($('#request_customer_id').val()==''){
+  			alert("Please select valid client.");
+  			return false;
+  		}
+		
+	});
+
+  	//for TABLES
+  	//Clicking row redirects to link of first anchor tag in table row
+  	$('tr').click(function(){
+
+  		//the first link inside the row
+  		anchorObj = $(this).find('a')[0];
+
+  		//ensure the link isn't undefined before redirecting
+  		if (typeof anchorObj !='undefined'){
+  			anchorObj.click();
+  		}
+  		
+  	})
+
+
   	//option buttons on home page hover
   	$('.option').hover(function(){
   		$(this).toggleClass('option_hover');
@@ -140,5 +165,5 @@ $(document).ready(function(){
     });
 });
 
-//go to new note on page
+
 

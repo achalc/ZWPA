@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
 	has_many :requests
 	belongs_to :user
 	
-	accepts_nested_attributes_for :requests, reject_if: lambda { |request| request[:contact_firstname].blank? }
+	accepts_nested_attributes_for :requests, reject_if: lambda { |request| request[:date].blank? }
 
 	# Validations
 	validates_presence_of :user_id

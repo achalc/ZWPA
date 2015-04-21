@@ -1,0 +1,169 @@
+<div class="field">
+      <label>Does your company have a <strong>'Buy Recycled'</strong> policy re: recyclability or recycled content of products?</label></br>
+
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :buy_recycled, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :buy_recycled, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :buy_recycled, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="field">
+      <%= f.text_area :buy_recycled_details, placeholder: "If yes, please describe..." %>
+    </div>
+    <div class="field">
+      <label>Does your company have a policy of purchasing non-toxic/'Green' cleaning products?</label><br>
+
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :green_cleaning_products, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :green_cleaning_products, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :green_cleaning_products, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="field">
+      <%= f.text_area :green_cleaning_details, placeholder: "If yes, please describe..." %>
+    </div>
+    
+    <div class="field">
+      <label>Is your building located in a recycling mandated community?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :mandated_recycling, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :mandated_recycling, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :mandated_recycling, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="field">
+      <label>Does your building currently have a <strong> recycling program </strong> ?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_program, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_program, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_program, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="field">
+      <label>If yes, describe your current recycling system and material collected for recycling</label><br>
+      <%= f.text_area :recycling_details, placeholder: "e.g. 'We collect office paper in 90 gallon toters'" %>
+    </div>
+    <div class="field">
+      <label>Does your building currently utilize a duel-stream or single-stream recycling program in your building?</label><br>
+
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_stream, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_stream, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :recycling_stream, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+
+    </div>
+  
+    <div class="field">
+      <label> Recycling stream details</label><br>
+      <%= f.text_area :recycling_stream_details, placeholder: "e.g. 'We collect white office and mixed paper in separate 90 gallon toters'" %>
+    </div>
+  
+    <div class="field">
+      <label>If your company was recycling and discontinued the effort, please explain why.</label><br>
+      <%= f.text_area :discontinued_recycling %>
+    </div>
+  
+    <div class="field">
+      <label>Does your company currently compost organic materials such as food waste/yard waste? </label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :current_compost, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :current_compost, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :current_compost, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="field">
+      <label>Has your organization composted organic material in the past?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :past_compost, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :past_compost, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :past_compost, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>

@@ -1,24 +1,77 @@
-<%= simple_form_for(@walkthrough, html: { class: 'form-horizontal'}) do |f| %> 
-  <fieldset>
-      <legend><h4>Does your building have a...</h4></legend>
-      <div class="field">
-        <label>Loading dock?</label><br>
-        <%#= f.number_field :loading_dock %>
-        <%= f.input :loading_dock, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
-      </div>
-      <div class="field">
-        <label>Freight elevators?</label><br>
-        <%#= f.number_field :freight_elevators %>
-        <%= f.input :freight_elevators, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
-      </div>
-      <div class="field">
-        <label>Ample storage space?</label><br>
-        <%#= f.number_field :storage_space %>
-        <%= f.input :storage_space, :collection => [['Yes', 'Yes'], ['No', 'No'], ['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
-      </div>
-      <div class="field">
-        <label>Storage details</label><br>
-        <%= f.text_area :storage_space_details %>
-      </div>
-  </fieldset>
- <% end %>
+<dl class="accordion" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#panel1b"><h4>Does your building have a...</h4></a>
+        <div id="panel1b" class="content">
+          <div class="field">
+            <label>Loading dock?</label><br>
+            <div class="field row">
+              <div class="small-12 medium-4 columns">
+                <%= f.input :loading_dock, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :loading_dock, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :loading_dock, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="field">
+            <label>Freight elevators?</label><br>
+            <div class="field row">
+              <div class="small-12 medium-4 columns">
+                <%= f.input :freight_elevators, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :freight_elevators, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :freight_elevators, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+            </div>
+
+          </div>
+          
+          <div class="field">
+            <label>Ample storage space?</label><br>
+            <div class="field row">
+              <div class="small-12 medium-4 columns">
+                <%= f.input :storage_space, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :storage_space, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+              <div class="small-12 medium-4 columns">
+                <%= f.input :storage_space, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="field">
+            <%= f.text_area :storage_space_details, placeholder: "Storage details..." %>
+          </div>
+        </div>
+      </dd>
+      
+    </dl>

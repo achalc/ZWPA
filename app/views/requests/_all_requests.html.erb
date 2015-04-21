@@ -1,21 +1,39 @@
-<table>
-  <thead>
-    <tr>
-      <th>Client</th>
-      <th>Date Initiated</th>
-      <th>Point of Contact</th>
-      <th></th>
-    </tr>
-  </thead>
+<% if !@requests.empty? %>
 
-  <tbody>
-    <% @requests.each do |request| %>
+  <table width="100%">
+    <thead>
       <tr>
-        <td><%= link_to request.customer.company_name, request%></td>
-        <td><%= link_to request.date.strftime('%b %e, %Y'), request %></td>
-        <td><%= link_to request.contact_firstname + ' ' + request.contact_lastname, request %></td>
-        <td><%= link_to '>', request %></td>
+        <th>Client</th>
+        <th>Date Initiated</th>
+        <th>Point of Contact</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @requests.each do |request| %>
+        <tr>
+          <td><%= link_to request.customer.company_name, request%></td>
+          <td><%= link_to request.date.strftime('%b %e, %Y'), request %></td>
+          <% if request.contact_firstname.blank? %>
+            <td><%= link_to "-", request %></td>
+          <% else %>
+            <td><%= link_to request.contact_firstname + ' ' + request.contact_lastname, request %></td>
+          <% end %>
+          <td><%= link_to '>', request %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br/>
+
+  <span class="paginate">
+  <%= will_paginate @requests, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+  </span>
+
+<% else %>
+
+  <p>No requests entered.</p>
+
+<% end %>

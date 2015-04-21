@@ -1,0 +1,140 @@
+<div class="row">
+      <div class="small-12 medium-6 columns">
+          <div class="field row">       
+            <div class="small-4 columns">
+                <label for="right-label" class="left inline">Sq. footage</label>
+            </div>
+            <div class="small-8 columns">
+                <%= f.number_field :square_footage %>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="small-12 medium-6 columns">
+        <div class="field row">
+          <div class="small-4 columns">
+            <label for="right-label" class="left inline">Number of floors</label>
+          </div>
+
+          <div class="small-8 columns">
+            <%= f.number_field :num_floors, class: "left" %>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <div class="field row">
+        <div class="small-4 columns">
+          <label for="right-label" class="left inline">Maximum Occupancy</label>
+        </div>
+        <div class="small-8 columns">
+          <%= f.number_field :max_occupancy %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>Are there other spaces/businesses (Leased or Owned/Operated) in the building?</label></br>
+    </div>
+  </div>
+
+  <div class="field row">
+    <div class="small-12 medium-4 columns">
+      <%= f.input :other_businesses, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :other_businesses, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :other_businesses, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <label>If yes, what type of business/spaces?</label>
+    </div>
+  </div>
+
+  <div class="field row">
+    <div class="small-12 columns">
+      <%= f.text_area :other_businesses_type, placeholder: "i.e. coffee shop, bar, restaurant, gift shop, business center" %>
+
+    </div>
+
+  </div>
+
+  <div class="row field">
+    <div class="small-12 medium-4 columns">
+      <label>Is your building...</label></br>
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :ownership, :collection => [['Own', 'Owned']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+    </div>
+
+     <div class="small-12 medium-4 columns">
+      <%= f.input :ownership, :collection => [['Lease', 'Leased']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+     </div>
+
+  </div>
+
+  <div class="row field">
+    <div class="small-12 columns">
+      <label>If leased, does the leasing agent control the solid waste/recycling disposal contract?</label></br>
+    </div>
+  </div>
+
+  <div class="field row">
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_disposal_contract, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_disposal_contract, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_disposal_contract, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+  </div>
+
+  <div class="row field">
+    <div class="small-12 columns">
+      <label>If leased, are waste management costs included in the rent payment?</label></br>
+    </div>
+  </div>
+
+  <div class="field row">
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_management_cost, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_management_cost, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+    <div class="small-12 medium-4 columns">
+      <%= f.input :waste_management_cost, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+    </div>
+
+  </div>
+</br>

@@ -1,19 +1,22 @@
-  <div class="fixed-bottom  show-for-medium-down">
-    <nav class="top-bar bottom-bar" >
-    	<section class="top-bar-section">
-    		<div class="bottom-button">
-    			Add Note
+<div class="sticky-footer">
+    <%#= render 'bottom_bar' %>
+      <div class="fixed-bottom  show-for-medium-down">
+      <nav class="top-bar bottom-bar" >
+        <section class="top-bar-section">
 
-    		</div>
-    		
-    		<div class="bottom-button">
-    			Save
-    		</div>
-    		<!-- <ul class="left">
-	      <li><%#=link_to 'Add Note', new_note_path, class: "button bottom_button"%></li>
-	      <li><%#=link_to 'Save', new_note_path, class: "button bottom_button"%></li>
-	  </ul> -->
-	  </section>
-  	
-    </nav>
-  </div>
+          <%= link_to new_note_path(:request_id => @walkthrough.request_id) do %>
+            <div class="bottom-button">
+              Add Note
+
+            </div>
+          <%end%>
+          
+          <div class="bottom-button save-button">
+            Save
+          </div>
+
+      </section>
+      
+      </nav>
+    </div>
+  </div> 

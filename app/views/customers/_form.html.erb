@@ -1,17 +1,17 @@
 <%= simple_nested_form_for(@customer, html: { class: 'form-horizontal', class: 'formtext' }) do |customer_form| %>
-  
-  <% if @customer.errors.any? %>
+
+
+ <% if not flash[:notice].nil? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this client from being saved:</h2>
+      <h2><%= pluralize(flash[:notice].count, "error") %> prohibited this client from being saved:</h2>
 
       <ul>
-      <% @customer.errors.full_messages.each do |msg| %>
+      <% flash[:notice].full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  <!-- took away user_id input and set it to always be user_id=1 in the controller -->
 
   <div class="row">
       <div class="span7">
@@ -25,31 +25,130 @@
 
     <div class="span7">
       <fieldset>
-      <legend>Request</legend>
+      <legend>Add Request</legend>
         <div id="requests">
         <%= simple_nested_form_for @customer do |f| %>
            <%= f.fields_for :requests do |request_form| %>
-              <%= request_form.hidden_field :customer_id, input_html: {value: @cus_id}%>
-              *First Name: <%= request_form.text_field :contact_firstname %>
-              Last Name: <%= request_form.text_field :contact_lastname %>
-              Title: <%= request_form.text_field :title %>
-              Email: <%= request_form.text_field :email %>
-              Phone: <%= request_form.text_field :phone %>
-              Street Address: <%= request_form.text_field :street_address %>
-              City: <%= request_form.text_field :city %>
-              Zip: <%= request_form.text_field :zip_code %>
-              <%= request_form.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter Date"} %>
-          <% end %>
+                <%= request_form.hidden_field :customer_id, input_html: {value: @cus_id}%>
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">* Date</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.input :date, as: :string, input_html: { class: 'datepicker', placeholder: "Enter Date", readonly:"readonly"}, label: false %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Contact First Name</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :contact_firstname %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Contact Last Name</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :contact_lastname %>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Contact Title</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :title %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Email</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :email %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Phone</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :phone, placeholder: "e.g. 111-222-3333" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Street Address</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :street_address %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">City</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :city %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="small-12 medium-6 columns">
+                    <div class="field row">
+                      <div class="small-3 columns">
+                        <label for="right-label" class="left inline">Zip Code</label>
+                      </div>
+                      <div class="small-9 columns">
+                        <%= request_form.text_field :zip_code %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+
+            <% end %>
           <% end %> 
-          <p>
-            <br />
-          </p>
         </div> 
         </fieldset>
       </div>
 
   <div class="actions">
-    <%= customer_form.submit "Save", class: 'button small' %>
+    <%= link_to 'Back to Clients', customers_path, class: "button small" %>
+    <%= customer_form.submit "Save", class: 'button success small' %>
   </div>
   </div>
 <% end %>

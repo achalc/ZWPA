@@ -17,7 +17,7 @@
 <div class="row">
   <div class="small-12 medium-8 columns">
     <h1 class="button-head">Waste Audit</h1>
-    <div class="add_button"><%= link_to 'Update', edit_audit_path(@audit), class: 'button tiny left ' %></div>
+    <div class="add_button"><%= link_to 'Update', edit_audit_path(@audit), class: 'button tiny left' %></div>
 
 
     <!-- RECORDED WASTE MATERIALS -->
@@ -26,8 +26,10 @@
         <%= render 'wastes_for_audit' %>
       </div>
 
+
       <!-- DOWNLOAD AS EXCEL -->
       <div class="small-12 columns">
+      </br>
         <p>
           Download:
           <%= link_to "CSV", audit_path(format: "csv") %> |

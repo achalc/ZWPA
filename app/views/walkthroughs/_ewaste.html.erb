@@ -1,139 +1,143 @@
-<%= simple_form_for(@walkthrough, html: { class: 'form-horizontal'}) do |f| %>
-  <h4>E-Wastes</h4>
+ <dl class="accordion" data-accordion>
+      <dd class="accordion-navigation">
+        <a href="#ewaste"><h4>E-Wastes</h4></a>
+        <div id="ewaste" class="content">
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label>Toner ink </label><br>
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label>Toner ink </label><br>
+            </div>
 
-      </div>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+            </div>
 
-      </div>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_toner_ink, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
-
-
-    </div>
-
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> CFLs/Fluorescent tubes </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+            </div>
 
 
-    </div>
+          </div>
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Batteries </label><br>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> CFLs/Fluorescent tubes </label><br>
 
-      </div>
+            </div>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
 
-      </div>
+            </div>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_CFLs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
 
-      </div>
-
-
-    </div>
-
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Computers, Peripherals </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+            </div>
 
 
-    </div>
+          </div>
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Cell Phones </label><br>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Batteries </label><br>
 
-      </div>
+            </div>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
 
-      </div>
+            </div>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_batteries, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
 
-      </div>
-
-
-    </div>
+            </div>
 
 
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> TV's </label><br>
+          </div>
 
-      </div>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Computers, Peripherals </label><br>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+            </div>
 
-      </div>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
 
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+            </div>
 
-      </div>
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_computers, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
 
-
-    </div>
-
-
-    <div class="row">
-      <div class="small-12 medium-4 columns">
-        <label> Other Corded Equipment </label><br>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :generate_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
-
-      </div>
-
-      <div class="small-12 medium-4 columns">
-        <%= f.input :recycle_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
-
-      </div>
+            </div>
 
 
-    </div>
+          </div>
 
-  <% end %>
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Cell Phones </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_cellphones, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> TV's </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_tvs, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="small-12 medium-4 columns">
+              <label> Other Corded Equipment </label><br>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :generate_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you generate?' %>
+
+            </div>
+
+            <div class="small-6 medium-4 columns">
+              <%= f.input :recycle_other_corded_equipment, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: 'Do you recycle?' %>
+
+            </div>
+
+
+          </div>
+        </div>
+      </dd>
+      
+    </dl>
+  </br>

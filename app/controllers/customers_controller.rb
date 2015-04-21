@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @requests = @customer.requests.to_a
+    @requests = @customer.requests.paginate(:page => params[:page]).per_page(10)
   end
 
   def new
@@ -29,7 +29,9 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: "#{@customer.company_name} was added to the ZWPA system." }
         format.json { render action: 'show', status: :created, location: @customer }
       else
-        format.html { render action: 'new' }
+        # format.html { render action: 'new' }
+        flash.keep[:notice] = @customer.errors
+        format.html { redirect_to controller: 'customers', action: 'new' }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
@@ -41,7 +43,8 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: "#{@customer.company_name} was successfully updated." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        flash.keep[:notice] = @customer.errors
+        format.html { redirect_to controller: 'customers', action: 'new' }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end

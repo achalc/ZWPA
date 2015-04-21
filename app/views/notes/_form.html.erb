@@ -26,6 +26,11 @@
     <%= f.text_area :description %>
   </div>
   <div class="actions">
-    <%= f.submit "Save", class: 'button'%>
+    <% if defined?(edit) && edit %>
+      <%= link_to 'Cancel', @note, class: 'button alert' %>
+    <% elsif defined?(newnote) && newnote %>
+      <%= link_to 'Back', request_path(@note.request_id), class: "button" %>
+    <%end%>
+    <%= f.submit "Save", class: 'button success'%>
   </div>
 <% end %>

@@ -1,0 +1,109 @@
+</br>
+  <div class="row">
+    <div class="small-12 medium-7 columns">
+      <div class="field row">
+        <div class="small-4 columns">
+          <label for="right-label" class="left inline">Current trash hauler</label>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field :trash_hauler %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="field">
+      <label>Do you have a contract with them?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :trash_hauler_contract, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :trash_hauler_contract, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :trash_hauler_contract, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label>If yes, is a copy available? </label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :contract_available, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :contract_available, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :contract_available, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Do you have at least one year's records of solid waste and/or recycling volumes?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-4 columns">
+          <%= f.input :annual_record, :collection => [['Yes', 'Yes']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :annual_record, :collection => [['No', 'No']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <%= f.input :annual_record, :collection => [['DK', 'DK']], :label_method => :last, :value_method => :first, :as => :radio_buttons, label: '' %>
+
+        </div>
+
+      </div>
+    </div>
+
+   <div class="field">
+      <label>Where is solid waste currently stored?</label><br>
+      <%= f.text_area :waste_storage %>
+   </div>
+
+   <div class="field">
+      <label>What solid waste containers do you use?</label><br>
+      <div class="field row">
+        <div class="small-12 medium-3 columns">
+          <%= f.input :waste_containers, :collection => [['Dumpster', 'Dumpster']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-3 columns">
+          <%= f.input :waste_containers, :collection => [['Roll-off', 'Roll-off']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: '' %>
+
+        </div>
+
+        <div class="small-12 medium-3 columns">
+          <%= f.input :waste_containers, :collection => [['Toter', 'Toter']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: '' %>
+
+        </div>
+
+         <div class="small-12 medium-3 columns">
+          <%= f.input :waste_containers, :collection => [['Other', 'Other']], :label_method => :last, :value_method => :first, :as => :check_boxes, label: '' %>
+
+        </div>
+
+      </div>
+   </div>

@@ -1,23 +1,41 @@
-<table>
-  <thead>
-    <tr>
-      <th>Client Name</th>
-      <th>Latest Request</th>
-      <th>Point of Contact</th>
-      <th></th>
-     
-    </tr>
-  </thead>
+<% if !@customers.empty? %>
 
-  <tbody>
-    <% @customers.each do |customer| %>
+  <table width="100%">
+    <thead>
       <tr>
-        <td><%= link_to customer.company_name, customer %></td>
-        <td><%= link_to customer.requests.chronological.last.date.to_s, customer.requests.chronological.last%></td>
-        <td><%= link_to customer.requests.chronological.last.contact_firstname + ' ' + customer.requests.chronological.last.contact_lastname, customer.requests.chronological.last %></td>
-        <!-- Make this an icon later -->
-        <td><%= link_to '>', customer%></td>
+        <th>Client Name</th>
+        <th>Latest Request</th>
+        <th>Point of Contact</th>
+        <th></th>
+       
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to customer.company_name, customer %></td>
+          <% if customer.requests.any? %>
+            <td><%= link_to customer.requests.chronological.last.date.strftime('%b %e, %Y'), customer%></td>
+            <td><%= link_to customer.requests.chronological.last.contact_firstname + ' ' + customer.requests.chronological.last.contact_lastname, customer %></td>
+          <% else %>
+            <td><%= link_to "None", customer%></td>
+            <td><%= link_to "-", customer %></td>
+          <% end %>
+          <!-- Make this an icon later -->
+          <td><%= link_to '>', customer%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br/>
+  <span class="paginate">
+  <%= will_paginate @customers, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+  </span>
+
+<% else %>
+
+  <p>No clients entered.</p>
+
+<%end%>

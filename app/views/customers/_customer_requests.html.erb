@@ -1,18 +1,40 @@
-<h4>Client Requests</h4>
+
+
 <% if !@requests.empty? %>
 
-	<table class="table">
+	<table class="table" width="100%">
+		<thead>
+			<th>Date Initiated</th>
+			<th>Point of Contact</th>
+			<th>Email</th>
+			<th></th>
+
+		</thead>
   	
 	  <% @requests.each do |request| %>
 	    <td><%=link_to request.created_at.strftime('%b %e, %Y'), request_path(request)%></td>
-	    <td><%=link_to "-", request_path(request)%></td>
 	    <td><%=link_to request.name, request_path(request)%></td>
-	    <td><%=link_to request.email, request_path(request)%></td>
+	    <% if request.email.empty? %>
+	    	<td><%=link_to "-", request_path(request)%></td>
+	    <% else %>
+	    	<td><%=link_to request.email, request_path(request)%></td>
+	    <% end %>
 	    <td><%=link_to ">", request_path(request)%></td>
 	  <% end %>
 <% else %>
 		<td>No requests created at this time...</td></br>
 <%end%>
 
-</table></br>
+</table>
+
+
+<br/>
+
+<span class="paginate">
+<%= will_paginate @requests, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+
+
+</br>
  
