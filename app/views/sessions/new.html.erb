@@ -20,11 +20,14 @@
       </div>
       
       <div class="actions"><%= submit_tag "Log In", class: "button" %>
-      <%= button_to "sessions/mail" do %>
-        <div>Forgot Password?</div>
-      <% end %>
       </div>
     <% end %>
+
+    <div class="actions">
+      <%= button_to "sessions/mail", data: {confirm: 'Email will be sent to PRC.'} do %>
+        <div>Forgot Password?</div>
+      <% end %>
+    </div>
     
   </div>
 
